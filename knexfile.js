@@ -3,13 +3,13 @@ module.exports = {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: './data/lambda.sqlite3'
+      filename: './data/recipes.sqlite3'
     },
     migrations: {
       directory: './data/migrations'
     },
     seeds: {
-      directory: './data/migrations'
+      directory: './data/seeds'
     },
     // by default SQLite will not enforce foreign keys
     pool: {
