@@ -8,7 +8,10 @@ function getDishes() {
   return db('dishes');
 }
 
-function addDish(dish) {}
+async function addDish(dish) {
+  const [newDishId] = await db('dishes').insert(dish);
+  return newDishId;
+}
 
 function getDish(id) {}
 
