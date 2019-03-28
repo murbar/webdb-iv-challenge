@@ -13,7 +13,15 @@ async function addDish(dish) {
   return newDishId;
 }
 
-function getDish(id) {}
+async function getDish(id) {
+  // not sure if I should be doing two queries here like so, or some sort of join op
+  // this feels right
+  const dish = await db('dishes')
+    .where({ id })
+    .first();
+  dish.recipes = await db('recipes').where({ dish_id: dish.id });
+  return dish;
+}
 
 function getRecipes() {}
 
