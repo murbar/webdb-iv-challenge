@@ -6,7 +6,7 @@ exports.up = function(knex) {
       .unsigned()
       .notNullable() // is this necessary here?
       .references('id')
-      .inTable('recipe');
+      .inTable('recipes');
     tbl
       .string('name', 128)
       .notNullable()
