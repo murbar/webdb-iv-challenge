@@ -35,7 +35,10 @@ function getRecipes() {
     );
 }
 
-function addRecipe(recipe) {}
+async function addRecipe(recipe) {
+  const [newRecipeId] = await db('recipes').insert(recipe);
+  return newRecipeId;
+}
 
 module.exports = {
   getDishes,
