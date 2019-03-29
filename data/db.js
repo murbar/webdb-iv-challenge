@@ -23,7 +23,17 @@ async function getDish(id) {
   return dish;
 }
 
-function getRecipes() {}
+function getRecipes() {
+  return db('recipes')
+    .join('dishes', 'recipes.dish_id', 'dishes.id')
+    .select(
+      'recipes.id',
+      'recipes.name',
+      'recipes.method',
+      'dishes.name as dish',
+      'dishes.cuisine'
+    );
+}
 
 function addRecipe(recipe) {}
 
